@@ -441,7 +441,6 @@ BAGLE provides models for the secondary companion's motion that is linear, accel
 
 \section{Binary Orbital Motion in BAGLE \label{sec:binary_solutions}}
 
-BAGLE is capable of modeling microlensing events using physical parameters such as the mass of the lens, the distance to the lens, flux, sky position, and proper motion of the lens and the source star. In order to support binary companions to the lens, the source, or both, we introduce many new parameters to describe the mass ratios, flux ratios, and orbital parameters for each binary system. 
 
 \begin{figure*}
     \centering
@@ -449,6 +448,10 @@ BAGLE is capable of modeling microlensing events using physical parameters such 
     \caption{Trajectories of binary orbits at $\inclination = 0 \degree$ (binary disk is face-on) simulated using BAGLE for zero center of mass proper motion. The primary and secondary objects at the time of periastron passage have been highlighted on both plots. (\emph{Left}) A circular orbit. (\emph{Right}) An elliptical orbit with an eccentricity of $0.6$. }
     \label{fig:com_geometry}
 \end{figure*}
+
+
+
+BAGLE is capable of modeling microlensing events using physical parameters such as the mass of the lens, the distance to the lens, flux, sky position, and proper motion of the lens and the source star. In order to support binary companions to the lens, the source, or both, we introduce many new parameters to describe the mass ratios, flux ratios, and orbital parameters for each binary system. 
 
 To model the primary and secondary motion around the center of mass, the following Keplerian orbital parameters are used: 
 
@@ -556,12 +559,7 @@ maximum parallax amplitude $1/d_S$ and $\vect{P}(t, \alpha, \delta)$ is the actu
 
 For accelerated approximations, along with $\deltamussvec$, BAGLE also inputs $\accSsec$, which is the acceleration of the secondary source relative to the lens. In the accelerated orbit model, the secondary source moves with constant acceleration relative to the primary source. The positions of the primary and secondary sources are given by: 
 
-\begin{figure*}
-    \centering
-    \includegraphics[width=  \textwidth] {figures/bspl_keplerian.png}
-    \caption{Source and lens trajectories for a simulated binary source point lens microlensing event involving Keplerian orbits. We present the unlensed sources (solid lines) and the lensed images (dashed + dotted lines). This event has the following Keplerian elements: $\w = 30 \degree$, $\bigomega = 10 \degree$, $\inclination = 90 \degree$, $e=0.6$, $\period = 1000$ days, $\al = 3  $~mas and $\ala = 8 $ mas. We simulate this event over $t_E=208.47$ days. The lens (8 $M_\odot$) is held stationary.}
-    \label{fig:bspl_keplerian}
-\end{figure*}
+
 
 
 \begin{align}
@@ -627,17 +625,14 @@ Note that BAGLE has other parameterizations for both linear and accelerated orbi
 
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/lin_lenses.png}
-    %\includegraphics[width=0.5\textwidth]{figures/acc_lenses.png}
-    \caption{Source and lens trajectories for linear (upper panel) and accelerated (lower panel) approximations of orbital motion of binary lenses. The solid black line is the primary lens, the solid purple line is the secondary lens, and the solid yellow lines are the image positions. In both panels, the source is stationary; the primary lens has a proper motion of $\mulvec$ = [-3.76 mas yr$^{-1}$, -3.76 mas yr$^{-1}$]; the secondary lens has a proper motion of  $\mulsvec$ = [-2.76 mas yr$^{-1}$, -2.76 mas yr$^{-1}$]. For our model with acceleration, we provide the following input for $\accLsec$ = [1 mas yr$^{-1}$, -1 mas yr$^{-1}$]. In both cases, the Einstein time ($\tE$)=412 days and $\uo$ = 0.5 $\thetaE$. Note that this scenario does not involve a caustic crossing and thus produces only 3 images.}
-    \label{fig:psbl_linacc}
-\end{figure}
-
-
 \subsection{Full Keplerian Solutions}
 \label{sec:binsources_kep}
+\begin{figure*}
+    \centering
+    \includegraphics[width=  \textwidth] {figures/bspl_keplerian.png}
+    \caption{Source and lens trajectories for a simulated binary source point lens microlensing event involving Keplerian orbits. We present the unlensed sources (solid lines) and the lensed images (dashed + dotted lines). This event has the following Keplerian elements: $\w = 30 \degree$, $\bigomega = 10 \degree$, $\inclination = 90 \degree$, $e=0.6$, $\period = 1000$ days, $\al = 3  $~mas and $\ala = 8 $ mas. We simulate this event over $t_E=208.47$ days. The lens (8 $M_\odot$) is held stationary.}
+    \label{fig:bspl_keplerian}
+\end{figure*}
 
 All binary-source models with  Keplerian motion in BAGLE input the following Keplerian orbital parameters: $\w$, $\inclination$, $\bigomega$, $\eccentricity$ (for elliptical orbits only), $\period$, $t_p$, $\al$, $\ala$. These models input an additional quantity $\mussysvec$, which is the proper motion of the source system's center of mass in the observer's frame of reference. $\Xscomvec$ is the position of the binary source's center of mass at $\tnot=\tpnot$. While BAGLE inputs $\tnot = \tpnot$ as the time of closest approach between the primary source and the lens, and $\uo$ as the closest approach between the primary source and the lens, it can convert between different coordinate systems (e.g., to use the closest approach between the source system center of mass and the lens). Conversions for
 $\tnot$ and $\uo$ are presented in Appendix \ref{sec:u0} and \ref{sec:t0}.
@@ -696,14 +691,6 @@ We can define a total amplification for the system using
 \end{eqnarray}
 where $f_p$ and $f_s$ are the intrinsic flux of the primary and secondary sources.
 
-
-\begin{figure*}
-    \centering
-    \includegraphics[width= \textwidth] {figures/psbl_keplerian.png}
-    \caption{Source and lens trajectories for a simulated microlensing event with a binary lens. The solid black line is the primary lens, the solid purple line is the secondary lens, the orange point is the source position, and the solid yellow lines are the image positions. We use the following orbital parameters: $\w = 30 \degree$, $\bigomega = 10 \degree$, $\inclination = 90 \degree$, $e=0.6$, $\period = 1054.41 $ days, and an angular separation of $5$ mas between the two lenses at $\tcomnot$. We present our simulation over $t_E=412.02$ days. The lenses have a mass of $m_{L,p}=$ 10 $M_\odot$ and $m_{L,s}=$ 5 $M_\odot$. The source is stationary.}
-    \label{fig:psbl_keplerian}
-\end{figure*}
-
 The observed flux for the lensed system is then
 \begin{eqnarray}
 f_{obs} = (A_p f_p + A_s f_s) \left(1 + \frac{1 - \bsff}{\bsff} \right).
@@ -720,21 +707,6 @@ The lensed astrometry, or the image centroid, ($\XIvec$) is then simply a flux-w
 
 \section{Point Sources and Binary Lens (PSBL) 
 \label{sec:binlenses}}
-
-\begin{figure*}
-    \centering
-    \includegraphics[width= \textwidth] {figures/bsbl_keplerian.png}
-    \caption{Source and lens trajectories for a simulated binary source, binary lens microlensing event with  involving circular orbits. The orange line is the primary source, the pink line is the secondary source, the black line is the primary lens, the purple line is the secondary lens, and the yellow lines are the image positions. The simulation was run with a $t_E = 231.15$ days with the following orbital parameters for the lens: $\w = 30 \degree$, $\bigomega = 10 \degree$, $\inclination = 90 \degree$, $e=0$, $\period = 1948.04 $ days, and the following orbital parmaeters for the source $\w = 30 \degree$, $\bigomega = 10 \degree$, $\inclination = 90 \degree$, $e=0.6$, $\period = 6000 $ days. The lenses have a mass of $m_{L,p}=$ 10 $M_\odot$ and $m_{L,s}=$ 8 $M_\odot$.}
-    \label{fig:bsbl_keplerian}
-\end{figure*}
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width= .48 \textwidth]{figures/parallax_comparison.png}
-    \caption{Comparison of a simulated PSBL event with parallax between VBMicrolensing, MuLensModel and BAGLE. The microlensing parameters in the SSB lens-frame are: $\tnot = 60478.49$, $\uo=1 \,\thetaE$, $\tE = 100.4$ days, $q = 0.3$, $\piE = [0.5, 0.5] \thetaE$. The amplification  ({\em top}) and residuals with respect to the BAGLE model ({\em bottom}) are shown over time.}
-    \label{fig:parallax_comparison}
-\end{figure}
 
 
 
@@ -754,6 +726,16 @@ For binary lenses, $\tnot=t_{geo, 0, \sun}$ in static, linear and accelerated or
 
 \subsection{Linear and Accelerated Orbital Approximations}
 \label{sec:binlenses_lin}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/lin_lenses.png}
+    %\includegraphics[width=0.5\textwidth]{figures/acc_lenses.png}
+    \caption{Source and lens trajectories for linear (upper panel) and accelerated (lower panel) approximations of orbital motion of binary lenses. The solid black line is the primary lens, the solid purple line is the secondary lens, and the solid yellow lines are the image positions. In both panels, the source is stationary; the primary lens has a proper motion of $\mulvec$ = [-3.76 mas yr$^{-1}$, -3.76 mas yr$^{-1}$]; the secondary lens has a proper motion of  $\mulsvec$ = [-2.76 mas yr$^{-1}$, -2.76 mas yr$^{-1}$]. For our model with acceleration, we provide the following input for $\accLsec$ = [1 mas yr$^{-1}$, -1 mas yr$^{-1}$]. In both cases, the Einstein time ($\tE$)=412 days and $\uo$ = 0.5 $\thetaE$. Note that this scenario does not involve a caustic crossing and thus produces only 3 images.}
+    \label{fig:psbl_linacc}
+\end{figure}
+
 
 %For binary lens systems with a long period, performing a fit using linear or accelerated approximations is computationally favorable. While these trajectories are physically not representative of the true orbit, they can serve as effective close approximations. 
 
@@ -795,6 +777,14 @@ We present examples for linear and accelerated orbital approximations involving 
 \subsection{Full Keplerian Solutions}
 \label{sec:binlenses_kep}
 
+
+\begin{figure}
+    \centering
+    \includegraphics[width= .5 \textwidth] {figures/psbl_keplerian.png}
+    \caption{Source and lens trajectories for a simulated microlensing event with a binary lens. The solid black line is the primary lens, the solid purple line is the secondary lens, the orange point is the source position, and the solid yellow lines are the image positions. We use the following orbital parameters: $\w = 30 \degree$, $\bigomega = 10 \degree$, $\inclination = 90 \degree$, $e=0.6$, $\period = 1054.41 $ days, and an angular separation of $5$ mas between the two lenses at $\tcomnot$. We present our simulation over $t_E=412.02$ days. The lenses have a mass of $m_{L,p}=$ 10 $M_\odot$ and $m_{L,s}=$ 5 $M_\odot$. The source is stationary.}
+    \label{fig:psbl_keplerian}
+\end{figure}
+
 All binary-lens models with Keplerian orbital motion (either circular or elliptical) input the following new Keplerian elements: $\w$, $\bigomega$, $\inclination$, $\eccentricity$, $t_p$, and $a$, where $a$ is the magnitude of the semi-major axis in angular units (mas) at $t_p$. We can convert $a$ to the semi-major axis in units of AU ($a_{AU}$) by using $a$ and the distance to the lens ($d_L$) in units of pc, i.e., $a_{AU} = a \times d_L$. In these models, $\mulvec$ is treated as the proper motion of the binary lens system's center of mass instead of the geometric midpoint of the binary lens. As such, we change the notation from $\mulvec$ to $\mulsysvec$ throughout this section. Furthermore, we amend the definition of $\tnot$ for such binary-lens models, i.e, $\tnot = \tcomnot$, where $\tcomnot$ is the time of closest approach between the lens center of mass and the source. The initial position of the lens system's center of mass at $\tcomnot$ is input as $\Xlcomvec$. 
 
 %For circular orbits, we assume that the projected angular separation $\vect{s}$ between the lenses is the projected semi-major axis. For elliptical orbits, instead of $\vect{s}$, we take the actual, projected semi-major axis $a$. 
@@ -815,38 +805,6 @@ Using all eight Keplerian elements, the motion of the primary and secondary lens
     \Xlsvec =& \Xlcomvec + \mulsysvec [t - \tcomnot] \nonumber \\
     +& \Xcoms + \pi_L \vect{P}(t, \alpha, \delta) 
 \end{align}
-
-\begin{figure}
-    \centering
-    \includegraphics[width= 0.5 \textwidth]{figures/magmap.png}
-    \caption{Magnification map for a BSBL microlensing event with both the source and lens at $\tcomnot$. The contour of the magnification map is indicative of the caustic. }
-    \label{fig:magmaps}
-\end{figure}
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width= 0.5 \textwidth]{figures/csmap.png}
-    \caption{A color map for the centroid shift during a PSBL microlensing event with the lenses at the time of closest approach. The color scale indicates the absolute centroid shift in the image plane.}
-    \label{fig:csmap}
-\end{figure}
-
-
-\begin{figure*}
-    \centering
-    \includegraphics[width= \textwidth]{figures/magmaps_varyq.png}
-    \caption{Caustics (\emph{pink}) and critical curves (\emph{blue}) for a PSBL model with the lens at a separation of 5 mas. We present panels with $q$ ranging from 0.1 to 1.}
-    \label{fig:magmaps_varyq}
-\end{figure*}
-
-
-
-\begin{figure*}
-    \centering
-    \includegraphics[width= \textwidth]{figures/magmaps_varysep.png}
-    \caption{Caustics (\emph{pink}) and critical curves (\emph{blue}) for a PSBL model at $t_p$ with a fixed $q=1$. The value of $a$ (provided as an input to the PSBL models) varies between $3$ mas, $6$ mas, $9$ mas in the three panels.}
-    \label{fig:magmaps_varysep}
-\end{figure*}
 
 We can simulate binary lens astrometry trajectories with Keplerian solutions implemented in BAGLE, presented in Figure~\ref{fig:psbl_keplerian}. The code necessary to simulate the astrometric trajectories is displayed below. We use the PSBL parameterization \texttt{PSBL\_PhotAstrom\_noPar\_EllOrbs\_Param1}, while noting that BAGLE has multiple alternative parameterizations. 
 
@@ -996,6 +954,14 @@ We need the amplifications and centroids of the images. The high-level step-by-s
 
 \section{Binary Sources and Binary Lenses (BSBL) \label{sec:bineverything}}
  
+\begin{figure*}
+    \centering
+    \includegraphics[width= \textwidth] {figures/bsbl_keplerian.png}
+    \caption{Source and lens trajectories for a simulated binary source, binary lens microlensing event with  involving circular orbits. The orange line is the primary source, the pink line is the secondary source, the black line is the primary lens, the purple line is the secondary lens, and the yellow lines are the image positions. The simulation was run with a $t_E = 231.15$ days with the following orbital parameters for the lens: $\w = 30 \degree$, $\bigomega = 10 \degree$, $\inclination = 90 \degree$, $e=0$, $\period = 1948.04 $ days, and the following orbital parmaeters for the source $\w = 30 \degree$, $\bigomega = 10 \degree$, $\inclination = 90 \degree$, $e=0.6$, $\period = 6000 $ days. The lenses have a mass of $m_{L,p}=$ 10 $M_\odot$ and $m_{L,s}=$ 8 $M_\odot$.}
+    \label{fig:bsbl_keplerian}
+\end{figure*}
+
+
  BAGLE can also simulate events with both binary sources and binary lenses. The orbital and lensing equations necessary to simulate a binary source and binary lens event in BAGLE are individually handled. This means that the equations necessary to simulate binary sources are from \S\ref{sec:binsource}, and the equations necessary to simulate binary lenses are from Sec. \S\ref{sec:binlenses}.
 
 For BSBL events with static, linear or accelerated approximations, $\tnot$ is defined as the time of closest approach between the geometric midpoint of the lens and the primary source. However, for Keplerian orbital motion (circular and elliptical), $\tnot$ is defined as the time of closest approach between the center of masses of the binary lens and the binary source. 
@@ -1004,6 +970,14 @@ We present our astrometric simulations in Figure~\ref{fig:bsbl_keplerian}. \text
 
 \section{Validation of Models}
 \label{sec:validation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width= .48 \textwidth]{figures/parallax_comparison.png}
+    \caption{Comparison of a simulated PSBL event with parallax between VBMicrolensing, MuLensModel and BAGLE. The microlensing parameters in the SSB lens-frame are: $\tnot = 60478.49$, $\uo=1 \,\thetaE$, $\tE = 100.4$ days, $q = 0.3$, $\piE = [0.5, 0.5] \thetaE$. The amplification  ({\em top}) and residuals with respect to the BAGLE model ({\em bottom}) are shown over time.}
+    \label{fig:parallax_comparison}
+\end{figure}
+
 
 In this section, we compare BAGLE with other contemporary microlensing models (VBMicrolensing and MuLensModel) against simulated point-source binary-lens events with parallax, but without orbital motion. A comparison with the inclusion of orbital motion is reserved for future. 
 
@@ -1084,47 +1058,6 @@ The comparison between VBM, MulensModel, and BAGLE is shown in Figure \ref{fig:p
 
 
 
-\begin{figure*}
-    \centering
-    \includegraphics[width= .48 \textwidth]{figures/LinAnal.png}
-    \includegraphics[width= .48 \textwidth]{figures/AccAnal.png}
-    \includegraphics[width= .48\textwidth]{figures/CircAnal.png}
-    \includegraphics[width= .48\textwidth]{figures/EllAnal.png}
-
-    \caption{Fitting output for a mock photometric dataset generated using  BSPL\_PhotAstrom\_noPar\_EllOrbs\_Param1 and the parameters displayed in Table ~\ref{tab:fake_fit}. We see correlated residuals in the linear and accelerated fits, unlike the circular and elliptical fits. 
-    (\emph{Top Left}) Best-fit with linear orbital motion. (\emph{Top Right}) Best-fit with accelerated orbital motion. (\emph{Bottom Left}) Best-fit with circular orbital motion. (\emph{Bottom Right}) Best-fit with elliptical orbital motion}
-    \label{fig:orbital_comparison}
-\end{figure*}
-
-
-
-\begin{figure*}
-    \centering
-    \includegraphics[width= .48 \textwidth]{figures/LinAnalAst1.png}
-    \includegraphics[width= .48 \textwidth]{figures/AccAnalAst1.png}
-    \includegraphics[width= .48\textwidth]{figures/CircAnalAst1.png}
-    \includegraphics[width= .48\textwidth]{figures/EllAnalAst1.png}
-
-    \caption{Fitting output for a mock astrometric dataset generated using  BSPL\_PhotAstrom\_noPar\_EllOrbs\_Param1 and the parameters displayed in \autoref{tab:fake_fit}. We present a fit for the RA component in this figure. 
-    (\emph{Top Left}) Best-fit with linear orbital motion. (\emph{Top Right}) Best-fit with accelerated orbital motion. (\emph{Bottom Left}) Best-fit with circular orbital motion. (\emph{Bottom Right}) Best-fit with elliptical orbital motion}
-    \label{fig:orbital_comparison_as1}
-\end{figure*}
-
-
-\begin{figure*}
-    \centering
-    \includegraphics[width= .48 \textwidth]{figures/LinAnalAst2.png}
-    \includegraphics[width= .48 \textwidth]{figures/AccAnalAst2.png}
-    \includegraphics[width= .48\textwidth]{figures/CircAnalAst2.png}
-    \includegraphics[width= .48\textwidth]{figures/EllAnalAst2.png}
-
-    \caption{Fitting output for a mock astrometric dataset generated using  BSPL\_PhotAstrom\_noPar\_EllOrbs\_Param1 and the parameters displayed in Table ~\ref{tab:fake_fit}. We present a fit for the RA component in this figure. 
-    (\emph{Top Left}) Best-fit with linear orbital motion. (\emph{Top Right}) Best-fit with accelerated orbital motion. (\emph{Bottom Left}) Best-fit with circular orbital motion. (\emph{Bottom Right}) Best-fit with elliptical orbital motion}
-    \label{fig:orbital_comparison_as2}
-\end{figure*}
-
-
-
 \begin{deluxetable}{p{1.5in}c}
 \tablecaption{Parameters used to generate the mock dataset using \texttt{BSPL\_PhotAstrom\_noPar\_EllOrbs\_Param1}. \label{tab:fake_fit}}
 \tablehead{
@@ -1170,6 +1103,15 @@ In this section, we investigate
 \end{itemize}
 
 \subsection{Results: Magnification Maps}
+
+\begin{figure}
+    \centering
+    \includegraphics[width= 0.48 \textwidth]{figures/magmap.png}
+    \caption{Magnification map for a BSBL microlensing event with both the source and lens at $\tcomnot$. The contour of the magnification map is indicative of the caustic. }
+    \label{fig:magmaps}
+\end{figure}
+
+
 \label{sec:results_magmap}
 
 By solving the lens equation, the magnification of the source at any (projected) position relative to the position of the lens can be calculated. The magnification map is a visualization reflecting the calculated magnification at a given point. Magnification maps are generated using the inverse ray shooting method \citep{Bennett_2010}. The inverse ray shooting method is a simple way to invert the lens equation by shooting
@@ -1186,6 +1128,14 @@ The magnification map for a BSBL event at $t_p$ is presented in Figure ~\ref{fig
 
 \subsection{Centroid Shift Maps}
 \label{sec:results_asm}
+
+\begin{figure}
+    \centering
+    \includegraphics[width= 0.48 \textwidth]{figures/csmap.png}
+    \caption{A color map for the centroid shift during a PSBL microlensing event with the lenses at the time of closest approach. The color scale indicates the absolute centroid shift in the image plane.}
+    \label{fig:csmap}
+\end{figure}
+
 Like the magnification map, a forward ray shooting method can be used to shoot from the source plane to the image plane, creating a color map of centroid shift. This forward ray shooting method works in the following way:
 
 
@@ -1200,14 +1150,76 @@ A centroid shift color map for a PSBL event at $t_p$ is presented in Figure~\ref
 
 
 \subsection{Results: Dependency of Mass Ratio and Separation}
+
+
+\begin{figure*}
+    \centering
+    \includegraphics[width= \textwidth]{figures/magmaps_varyq.png}
+    \caption{Caustics (\emph{pink}) and critical curves (\emph{blue}) for a PSBL model with the lens at a separation of 5 mas. We present panels with $q$ ranging from 0.1 to 1.}
+    \label{fig:magmaps_varyq}
+\end{figure*}
+
+
+
+\begin{figure*}
+    \centering
+    \includegraphics[width= \textwidth]{figures/magmaps_varysep.png}
+    \caption{Caustics (\emph{pink}) and critical curves (\emph{blue}) for a PSBL model at $t_p$ with a fixed $q=1$. The value of $a$ (provided as an input to the PSBL models) varies between $3$ mas, $6$ mas, $9$ mas in the three panels.}
+    \label{fig:magmaps_varysep}
+\end{figure*}
+
 \label{sec:results_q}
 In this section, we explore the dependency of caustics on mass ratios and separation. The separation is fixed at an arbitrarily chosen value of 3 mas and the mass ratio $q=\frac{m_{L,s}}{m_{L,p}}$ for a dark, non-planetary lens, ranges from 0.1 to 1. The caustics and critical curves are presented in Figure~\ref{fig:magmaps_varyq}. We see that the caustic becomes more symmetric as $q \rightarrow 1$. The degree of asymmetry is directly dependent on $q$. 
 
 Similarly, by fixing the mass  $q=\frac{m_{L,s}}{m_{L,p}} = 1$, BAGLE can replicate a dark, non-planetary lens at varying angular separations between the primary and secondary lens. From the caustics and critical curves presented in Figure~\ref{fig:magmaps_varysep}, we see that the caustic remains symmetric regardless of separation for a fixed $q=1$. At larger separations, the caustics also become increasingly elongated or stretched. Detailed descriptions of the geometry of caustics for the q = 1 case can be found in \cite{Schneider_1986}.  
 
 
+
+
+\begin{figure*}
+    \centering
+    \includegraphics[width= .48 \textwidth]{figures/LinAnal.png}
+    \includegraphics[width= .48 \textwidth]{figures/AccAnal.png}
+    \includegraphics[width= .48\textwidth]{figures/CircAnal.png}
+    \includegraphics[width= .48\textwidth]{figures/EllAnal.png}
+
+    \caption{Fitting output for a mock photometric dataset generated using  BSPL\_PhotAstrom\_noPar\_EllOrbs\_Param1 and the parameters displayed in Table ~\ref{tab:fake_fit}. We see correlated residuals in the linear and accelerated fits, unlike the circular and elliptical fits. 
+    (\emph{Top Left}) Best-fit with linear orbital motion. (\emph{Top Right}) Best-fit with accelerated orbital motion. (\emph{Bottom Left}) Best-fit with circular orbital motion. (\emph{Bottom Right}) Best-fit with elliptical orbital motion}
+    \label{fig:orbital_comparison}
+\end{figure*}
+
+
+
+\begin{figure*}
+    \centering
+    \includegraphics[width= .48 \textwidth]{figures/LinAnalAst1.png}
+    \includegraphics[width= .48 \textwidth]{figures/AccAnalAst1.png}
+    \includegraphics[width= .48\textwidth]{figures/CircAnalAst1.png}
+    \includegraphics[width= .48\textwidth]{figures/EllAnalAst1.png}
+
+    \caption{Fitting output for a mock astrometric dataset generated using  BSPL\_PhotAstrom\_noPar\_EllOrbs\_Param1 and the parameters displayed in \autoref{tab:fake_fit}. We present a fit for the RA component in this figure. 
+    (\emph{Top Left}) Best-fit with linear orbital motion. (\emph{Top Right}) Best-fit with accelerated orbital motion. (\emph{Bottom Left}) Best-fit with circular orbital motion. (\emph{Bottom Right}) Best-fit with elliptical orbital motion}
+    \label{fig:orbital_comparison_as1}
+\end{figure*}
+
+
+\begin{figure*}
+    \centering
+    \includegraphics[width= .48 \textwidth]{figures/LinAnalAst2.png}
+    \includegraphics[width= .48 \textwidth]{figures/AccAnalAst2.png}
+    \includegraphics[width= .48\textwidth]{figures/CircAnalAst2.png}
+    \includegraphics[width= .48\textwidth]{figures/EllAnalAst2.png}
+
+    \caption{Fitting output for a mock astrometric dataset generated using  BSPL\_PhotAstrom\_noPar\_EllOrbs\_Param1 and the parameters displayed in Table ~\ref{tab:fake_fit}. We present a fit for the RA component in this figure. 
+    (\emph{Top Left}) Best-fit with linear orbital motion. (\emph{Top Right}) Best-fit with accelerated orbital motion. (\emph{Bottom Left}) Best-fit with circular orbital motion. (\emph{Bottom Right}) Best-fit with elliptical orbital motion}
+    \label{fig:orbital_comparison_as2}
+\end{figure*}
+
+
 \subsection{Results: Orbital Motion}
 \label{sec:results_om}
+
+
 
 In this section, we demonstrate the need to account for the orbital motion of binary systems by fitting a mock dataset to various models with orbital motion in BAGLE. 
 
@@ -1261,7 +1273,7 @@ BAGLE's capabilities for handling point-source, point-lens events are presented 
 In conclusion, the wide array of models and parameterizations available in BAGLE make it suitable for a joint photometric and astrometric fitting of binary events. BAGLE's new binary models will be used to work with data from the Vera C. Rubin Observatory, the Nancy Grace Roman Telescope, and other surveys. It will be used to better characterize measured microlensing signals of black hole astrometric candidates. These new models, which accurately capture the orbital dynamics of binary systems, will enhance our search for dark lenses, such as black holes, exoplanets, free-floating planets, and other intriguing candidates. 
 
 
-\vspace{5mm}  
+%\vspace{5mm}  
 
 %\textit{Software:} \texttt{Bagle} \textcolor{red}{\textbf{(BAGLE paper)}}, \texttt{MultiNest} \citep{multinest}, \texttt{Dynesty} \citep{Speagle_2020}, \texttt{NumPy} \citep{harris2020array}, \texttt{SciPy} \citep{2020SciPy-NMeth}, \texttt{Matplotlib} \citep{Hunter:2007}.
 
